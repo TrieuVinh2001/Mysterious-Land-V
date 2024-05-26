@@ -5,14 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Character", menuName = "Character")]
 public class CharacterSO : ScriptableObject
 {
-    public enum CharacterType { Player, enemy}
+    public enum CharacterType { Player, Enemy}
 
     [Header("Attributes")]
     public new string name;
     public int id;
     public CharacterType type;
     public Sprite image;
-    public RuntimeAnimatorController anim;
     public float coin;
     public float hp;
     public float damage;

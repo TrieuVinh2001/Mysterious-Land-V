@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField]
     private Camera cam;
-    [SerializeField]
-    private SpriteRenderer mapRenderer;
+    [SerializeField] private SpriteRenderer mapRenderer;
     private float mapMinX, mapMaxX, mapMinY, mapMaxY;
 
     private Vector3 dragOrigin;
 
     private void Awake()
     {
+        cam = Camera.main;
+
         mapMinX = mapRenderer.transform.position.x - mapRenderer.bounds.size.x / 2f;
         mapMaxX = mapRenderer.transform.position.x + mapRenderer.bounds.size.x / 2f;
         mapMinY = mapRenderer.transform.position.y - mapRenderer.bounds.size.y / 2f;
