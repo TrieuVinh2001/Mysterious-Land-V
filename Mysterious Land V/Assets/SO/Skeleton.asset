@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee347ed2933a4a54a8c7a2c195519075, type: 3}
-  m_Name: Demon
+  m_Name: Skeleton
   m_EditorClassIdentifier: 
-  name: Demon
-  id: 1
+  name: Skeleton
+  id: 8
   type: 0
-  image: {fileID: 21300000, guid: 26bed2a49c361ab44ba97cb873e2c513, type: 3}
-  coin: 8
-  hp: 200
-  damage: 20
-  armor: 2
+  image: {fileID: 21300000, guid: 00c41cf11bd2a084b98aeb2bb224b454, type: 3}
+  coin: 5
+  hp: 100
+  damage: 11
+  armor: 0
   moveSpeed: 0.9
-  attackSpeed: 1.5
+  attackSpeed: 0.8
   attackRange: 0.7
   critical: 0
   bloodSucker: 0
