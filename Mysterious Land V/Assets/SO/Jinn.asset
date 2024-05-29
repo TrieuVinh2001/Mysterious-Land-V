@@ -22,7 +22,7 @@ MonoBehaviour:
   armor: 1
   moveSpeed: 1.2
   attackSpeed: 1
-  attackRange: 0.7
+  attackRange: 3.5
   critical: 0
   bloodSucker: 0
   armorPiercing: 0

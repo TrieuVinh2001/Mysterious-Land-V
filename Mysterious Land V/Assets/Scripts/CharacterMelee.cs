@@ -10,6 +10,19 @@ public class CharacterMelee : CharacterBase
 
     }
 
+    protected override void SearchCharacter()
+    {
+        Collider2D[] checks = Physics2D.OverlapCircleAll(checkPoint.position, character.attackRange, enemyLayer);//kiểm tra trong phạm vi những vật có layer là enemyLayer
+        if (checks.Length > 0)//Nếu trong vùng có
+        {
+            isAttack = true;
+        }
+        else
+        {
+            isAttack = false;
+        }
+    }
+
     protected override void Attack()
     {
         base.Attack();
@@ -22,10 +35,18 @@ public class CharacterMelee : CharacterBase
         if (checks.Length > 0)
         {
             checks[0].GetComponent<CharacterBase>().TakeDamage(character.damage);
-            if(checks[0].TryGetComponent<Building>(out Building buiding))
+            if(checks[0].TryGetComponent(out Building buiding))
             {
                 buiding.TakeDamage(character.damage);
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()//Hàm vẽ
+    {
+        if (checkPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(checkPoint.position, character.attackRange);
     }
 }

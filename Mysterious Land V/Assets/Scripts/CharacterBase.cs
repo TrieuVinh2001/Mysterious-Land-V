@@ -45,11 +45,7 @@ public class CharacterBase : MonoBehaviour
 
     protected virtual void SearchCharacter()
     {
-        Collider2D[] checks = Physics2D.OverlapCircleAll(checkPoint.position, character.attackRange, enemyLayer);//kiểm tra trong phạm vi những vật có layer là enemyLayer
-        if (checks.Length > 0)//Nếu trong vùng có
-        {
-            isAttack = true;
-        }
+        
     }
 
     protected virtual void Move()//Di chuyển
@@ -94,13 +90,7 @@ public class CharacterBase : MonoBehaviour
         Destroy(gameObject);//Hủy nhân vật
     }
 
-    private void OnDrawGizmosSelected()//Hàm vẽ
-    {
-        if (checkPoint == null)
-            return;
-
-        Gizmos.DrawWireSphere(checkPoint.position, character.attackRange);
-    }
+    
 
     public int GetId()
     {
