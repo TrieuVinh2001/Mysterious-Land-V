@@ -23,6 +23,7 @@ public class SpawnCharacter : MonoBehaviour
             if (hit.collider != null && hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area))
             {
                 Spawn(selectedChar.indexSelected, area.posSpawn, area.gameObject);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
+                selectedChar.indexSelected = -1;//Reset lại index để phải chọn lại quân để spawn
             }
         }
     }

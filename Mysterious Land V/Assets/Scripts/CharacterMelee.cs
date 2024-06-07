@@ -34,11 +34,14 @@ public class CharacterMelee : CharacterBase
         Collider2D[] checks = Physics2D.OverlapCircleAll(checkPoint.position, character.attackRange, enemyLayer);
         if (checks.Length > 0)
         {
-            checks[0].GetComponent<CharacterBase>().TakeDamage(character.damage);
-            if(checks[0].TryGetComponent(out Building buiding))
+            if (checks[0].TryGetComponent(out Building building))
             {
-                buiding.TakeDamage(character.damage);
+                building.TakeDamage(character.damage);
+                return;
             }
+
+            checks[0].GetComponent<CharacterBase>().TakeDamage(character.damage);
+            
         }
     }
 

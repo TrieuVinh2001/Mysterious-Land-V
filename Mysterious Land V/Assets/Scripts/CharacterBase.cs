@@ -32,10 +32,11 @@ public class CharacterBase : MonoBehaviour
 
     protected virtual void Update()
     {
+        SearchCharacter();//Tìm kiếm các nhân vật trong phạm vi
+
         if (!isAttack)
         {
             Move();
-            SearchCharacter();//Tìm kiếm các nhân vật trong phạm vi
         }
         else
         {
@@ -95,5 +96,10 @@ public class CharacterBase : MonoBehaviour
     public int GetId()
     {
         return character.id;
+    }
+
+    public CharacterSO GetCharacterSO()
+    {
+        return character;
     }
 }

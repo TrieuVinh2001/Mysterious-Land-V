@@ -18,6 +18,7 @@ public class SelectedCharacter : MonoBehaviour
         for (int i = 0; i < idCharacters.Count; i++)
         {
             cards[i].GetComponent<CardClick>().index = i;
+            
             cards[i].SetActive(true);//Hiện thẻ
 
             foreach (var prefab in allPrefabsChar)//Thêm prefab vào danh sách các prefab sẽ dùng trong màn chơi
@@ -25,6 +26,7 @@ public class SelectedCharacter : MonoBehaviour
                 if(prefab.GetComponent<CharacterBase>().GetId() == idCharacters[i])
                 {
                     characterPrefabs.Add(prefab);
+                    cards[i].GetComponent<CardClick>().characterSO = prefab.GetComponent<CharacterBase>().GetCharacterSO();
                 }
             }
         }

@@ -9,11 +9,14 @@ public class CardClick : MonoBehaviour, IPointerClickHandler
     private SelectedCharacter selectChar;
     private Button button;
     public int index;//thứ tự trong list
+    public CharacterSO characterSO; 
 
     private void Start()
     {
+        
         button = GetComponent<Button>();
         selectChar = GetComponentInParent<SelectedCharacter>();
+        GetComponent<Image>().sprite = characterSO.image;
     }
 
     public void OnPointerClick(PointerEventData eventData)
