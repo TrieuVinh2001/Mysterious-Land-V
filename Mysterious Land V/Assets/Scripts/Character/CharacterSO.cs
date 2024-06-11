@@ -12,9 +12,9 @@ public class CharacterSO : ScriptableObject
     public int id;
     public CharacterType type;
     public Sprite image;
-    public float coin;
-    public float hp;
-    public float damage;
+    public int coin;
+    public int hp;
+    public int damage;
     public float armor;
     public float moveSpeed;
     public float attackSpeed;

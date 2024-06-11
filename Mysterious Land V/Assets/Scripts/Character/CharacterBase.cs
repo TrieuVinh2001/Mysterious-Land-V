@@ -82,6 +82,15 @@ public class CharacterBase : MonoBehaviour
         else
         {
             health = 0;
+            if (character.type == CharacterSO.CharacterType.Player)//Kiểm tra loại nhân vật là player hay enemy
+            {
+                GameManager.instance.ChangeCountCharacter(-1);
+            }
+            else if (character.type == CharacterSO.CharacterType.Enemy)
+            {
+                GameManager.instance.ChangeCountEnemy(-1);
+            }
+            
             Death();
         }
     }
@@ -89,13 +98,6 @@ public class CharacterBase : MonoBehaviour
     protected virtual void Death()//Chết
     {
         Destroy(gameObject);//Hủy nhân vật
-    }
-
-    
-
-    public int GetId()
-    {
-        return character.id;
     }
 
     public CharacterSO GetCharacterSO()
