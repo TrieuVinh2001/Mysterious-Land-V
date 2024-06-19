@@ -27,3 +27,4 @@ MonoBehaviour:
   bloodSucker: 0
   armorPiercing: 0
   healing: 0
+  timeCoolDown: 4

@@ -23,5 +23,5 @@ public class CharacterSO : ScriptableObject
     public float bloodSucker;//Hút máu
     public float armorPiercing;//Xuyên giáp
     public float healing;//Hồi máu
-
+    public float timeCoolDown;//Thời gian chờ triệu hồi
 }

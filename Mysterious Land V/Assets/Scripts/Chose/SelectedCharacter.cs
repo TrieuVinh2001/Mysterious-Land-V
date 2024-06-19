@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SelectedCharacter : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class SelectedCharacter : MonoBehaviour
         {
             cards[i].GetComponent<CardClick>().index = i;
             
-            cards[i].SetActive(true);//Hiện thẻ
+            cards[i].transform.parent.gameObject.SetActive(true);//Hiện thẻ
 
             foreach (var prefab in allPrefabsChar)//Thêm prefab vào danh sách các prefab sẽ dùng trong màn chơi
             {
@@ -27,6 +28,7 @@ public class SelectedCharacter : MonoBehaviour
                 {
                     characterPrefabs.Add(prefab);
                     cards[i].GetComponent<CardClick>().characterSO = prefab.GetComponent<CharacterBase>().GetCharacterSO();
+                    cards[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "" + prefab.GetComponent<CharacterBase>().GetCharacterSO().coin;
                 }
             }
         }
