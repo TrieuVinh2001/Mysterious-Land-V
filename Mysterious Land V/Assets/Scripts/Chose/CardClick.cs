@@ -24,7 +24,7 @@ public class CardClick : MonoBehaviour, IPointerClickHandler
         button = GetComponent<Button>();
         selectChar = GetComponentInParent<SelectedCharacter>();
         GetComponent<Image>().sprite = characterSO.image;
-        
+        GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
         timeCoolDownText = coolDownImage.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
         timeCoolDown = characterSO.timeCoolDown;
@@ -43,13 +43,20 @@ public class CardClick : MonoBehaviour, IPointerClickHandler
     {
         if (button.enabled)//Nếu nút hiện
         {
-            coolDownImage.gameObject.SetActive(true);
+            for (int i = 0; i < selectChar.cards.Length; i++)
+            {
+                if(selectChar.cards[i].GetComponent<CardClick>().index == index)
+                {
+                    GetComponent<Image>().color = Color.white;
+                }
+                else
+                {
+                    selectChar.cards[i].GetComponent<CardClick>().gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+                }
+            }
             selectChar.indexSelected = index;
-            
-
-            timeDown = timeCoolDown;
-
-            isCoolDown = true;
+            selectChar.isSkill = false;
+            selectChar.isHero = false;
         }
     }
 
@@ -63,5 +70,12 @@ public class CardClick : MonoBehaviour, IPointerClickHandler
             isCoolDown = false;
             coolDownImage.gameObject.SetActive(false);
         }
+    }
+
+    public void CoolDown()
+    {
+        coolDownImage.gameObject.SetActive(true);
+        isCoolDown = true;
+        timeDown = timeCoolDown;
     }
 }

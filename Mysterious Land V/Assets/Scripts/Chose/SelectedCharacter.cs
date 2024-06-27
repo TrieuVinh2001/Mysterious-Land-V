@@ -7,24 +7,44 @@ public class SelectedCharacter : MonoBehaviour
 {
     public int indexSelected;//Thứ tự của character sẽ được spawn trong list
     public List<GameObject> characterPrefabs = new List<GameObject>();//Danh sách prefab sẽ được chọn trong màn chơi
-    [SerializeField] private GameObject[] allPrefabsChar;//Tất cả prefab
-    [SerializeField] private GameObject[] cards;//Các ô thẻ cố định trong màn
+    public GameObject heroPrefab;
+    public GameObject skillPrefab;
+    [SerializeField] private GameObject[] allPrefabChar;//Tất cả prefab nhân vật
+    [SerializeField] private GameObject[] allPrefabHero;
+    [SerializeField] private GameObject[] allPrefabSkill;
+
+    public GameObject[] cards;//Các ô thẻ nhân vật
+    [SerializeField] private GameObject cardHero;//Thẻ chọn anh hùng
+    [SerializeField] private GameObject cardSkill;//Thẻ chọn kỹ năng
 
     [SerializeField] private List<int> idCharacters = new List<int>();//Danh sách id của nhân vật
+    [SerializeField] private int idHero;
+    [SerializeField] private int idSkill;
 
-    private void Start()
+    public bool isHero;
+    public bool isSkill;
+
+    private void Awake()
     {
-        GetIdCharacter();//Lấy Id của nhân vật
+        GetIdData();//Lấy Id
 
+        GetCharacter();
+        GetHero();
+        GetSkill();
+
+    }
+
+    private void GetCharacter()
+    {
         for (int i = 0; i < idCharacters.Count; i++)
         {
             cards[i].GetComponent<CardClick>().index = i;
-            
+
             cards[i].transform.parent.gameObject.SetActive(true);//Hiện thẻ
 
-            foreach (var prefab in allPrefabsChar)//Thêm prefab vào danh sách các prefab sẽ dùng trong màn chơi
+            foreach (var prefab in allPrefabChar)//Thêm prefab vào danh sách các prefab sẽ dùng trong màn chơi
             {
-                if(prefab.GetComponent<CharacterBase>().GetCharacterSO().id == idCharacters[i])
+                if (prefab.GetComponent<CharacterBase>().GetCharacterSO().id == idCharacters[i])
                 {
                     characterPrefabs.Add(prefab);
                     cards[i].GetComponent<CardClick>().characterSO = prefab.GetComponent<CharacterBase>().GetCharacterSO();
@@ -34,7 +54,38 @@ public class SelectedCharacter : MonoBehaviour
         }
     }
 
-    private void GetIdCharacter()
+    private void GetHero()
+    {
+        //cardHero.GetComponent<CardHeroClick>().index = idHero;
+
+        //cardHero.transform.parent.gameObject.SetActive(true);//Hiện thẻ
+
+        foreach (var prefab in allPrefabHero)//Thêm prefab vào danh sách các prefab sẽ dùng trong màn chơi
+        {
+            if (prefab.GetComponent<CharacterBase>().GetCharacterSO().id == idHero)
+            {
+                heroPrefab = prefab;
+                cardHero.GetComponent<CardHeroClick>().characterSO = prefab.GetComponent<CharacterBase>().GetCharacterSO();
+            }
+        }
+    }
+
+    private void GetSkill()
+    {
+
+        //cardSkill.transform.parent.gameObject.SetActive(true);//Hiện thẻ
+
+        foreach (var prefab in allPrefabSkill)//Thêm prefab vào danh sách các prefab sẽ dùng trong màn chơi
+        {
+            if (prefab.GetComponent<SkillBase>().GetSkillSO().id == idSkill)
+            {
+                skillPrefab = prefab;
+                cardSkill.GetComponent<CardSkillClick>().skillSO = prefab.GetComponent<SkillBase>().GetSkillSO();
+            }
+        }
+    }
+
+    private void GetIdData()
     {
         if (PlayerPrefs.HasKey("Data"))//Kiểm tra key
         {
@@ -46,5 +97,8 @@ public class SelectedCharacter : MonoBehaviour
                 idCharacters.Add(id);
             }
         }
+
+        idHero = PlayerPrefs.GetInt("Hero");
+        idSkill = PlayerPrefs.GetInt("Skill");
     }
 }

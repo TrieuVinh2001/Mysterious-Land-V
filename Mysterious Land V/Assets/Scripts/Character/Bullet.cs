@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float moveSpeed;
+    public int damage;
     [SerializeField] private GameObject explosionPrefab;
 
     private void Update()
@@ -21,7 +22,12 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy") && collision.TryGetComponent(out CharacterBase characterBase))
         {
-            characterBase.TakeDamage(1);
+            characterBase.TakeDamage(damage);
+            DestroyBullet();
+        }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy") && collision.TryGetComponent(out Building building))
+        {
+            building.TakeDamage(damage);
             DestroyBullet();
         }
         

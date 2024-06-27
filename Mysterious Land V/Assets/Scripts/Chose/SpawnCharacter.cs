@@ -6,6 +6,10 @@ public class SpawnCharacter : MonoBehaviour
 {
     private SelectedCharacter selectedChar;
 
+    private bool isDragging = false;
+    private Vector3 startPosition;
+    private float timeClick;
+
     private void Start()
     {
         selectedChar = GetComponent<SelectedCharacter>();
@@ -13,31 +17,87 @@ public class SpawnCharacter : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && GameManager.instance.countCharacter < GameManager.instance.maxCountCharacter)//khi nhấn vào khu vực thả quân
+        if (Input.GetMouseButtonDown(0))
         {
-            if (selectedChar.indexSelected < 0)
-                return;
+            startPosition = Input.mousePosition;
+            isDragging = false;
+        }
 
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+        if (Input.GetMouseButton(0))
+        {
+            timeClick += Time.deltaTime;
 
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);//xác định điểm nhấn dựa vào raycast
-
-            if (hit.collider != null && hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area))
+            if (Vector3.Distance(startPosition, Input.mousePosition) > 5 || timeClick > 2f)
             {
-                int coinCharacter = selectedChar.characterPrefabs[selectedChar.indexSelected].GetComponent<CharacterBase>().GetCharacterSO().coin;
-                if (coinCharacter > GameManager.instance.coin)
-                    return;
+                isDragging = true;
+            }
+        }
 
-                Spawn(selectedChar.indexSelected, area.posSpawn, area.gameObject, coinCharacter);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
-                selectedChar.indexSelected = -1;//Reset lại index để phải chọn lại quân để spawn
+        if (Input.GetMouseButtonUp(0))
+        {
+            timeClick = 0;
+
+            if (!isDragging)
+            {
+                ClickArea();
             }
         }
     }
 
-    private void Spawn(int spawnIndex, Vector2 posSpawn, GameObject areaParent, int coinCharacter)
+    private void ClickArea()
     {
-        GameObject newChar = Instantiate(selectedChar.characterPrefabs[spawnIndex], posSpawn, Quaternion.identity);
+        if (GameManager.instance.countCharacter < GameManager.instance.maxCountCharacter)//khi nhấn vào khu vực thả quân
+        {
+            if (selectedChar.indexSelected < 0 && !selectedChar.isHero || selectedChar.isSkill)
+                return;
+
+            if (selectedChar.isHero)
+            {
+                SpawnHeroOnArea();
+            }
+            else
+            {
+                SpawCharacterOnArea();
+            }
+        }
+    }
+
+    private void SpawCharacterOnArea()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);//xác định điểm nhấn dựa vào raycast
+
+        if (hit.collider != null && hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area))
+        {
+            int coinCharacter = selectedChar.characterPrefabs[selectedChar.indexSelected].GetComponent<CharacterBase>().GetCharacterSO().coin;
+            if (coinCharacter > GameManager.instance.coin)
+                return;
+
+            Spawn(selectedChar.characterPrefabs[selectedChar.indexSelected], area.posSpawn, area.gameObject, coinCharacter);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
+            selectedChar.cards[selectedChar.indexSelected].GetComponent<CardClick>().CoolDown();
+            selectedChar.indexSelected = -1;//Reset lại index để phải chọn lại quân để spawn
+        }
+    }
+
+    private void SpawnHeroOnArea()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);//xác định điểm nhấn dựa vào raycast
+
+        if (hit.collider != null && hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area))
+        {
+            Spawn(selectedChar.heroPrefab, area.posSpawn, area.gameObject, 0);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
+            selectedChar.isHero = false;
+        }
+    }
+
+    private void Spawn(GameObject prefab, Vector2 posSpawn, GameObject areaParent, int coinCharacter)
+    {
+        GameObject newChar = Instantiate(prefab, posSpawn, Quaternion.identity);
         newChar.transform.parent = areaParent.transform; //đưa gameobject làm con của gameobject areaParent 
 
         GameManager.instance.ChangeCoin(-coinCharacter);

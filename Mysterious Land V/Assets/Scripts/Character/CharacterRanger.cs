@@ -43,7 +43,17 @@ public class CharacterRanger : CharacterBase
     private void BulletSpawn()
     {
         GameObject bullet = Instantiate(bulletPrefab, checkPoint.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().moveSpeed = bulletSpeed;
+        if(bullet.TryGetComponent<Bullet>(out Bullet bul))
+        {
+            bul.moveSpeed = bulletSpeed;
+            bul.damage = character.damage;
+        }
+        if(bullet.TryGetComponent<BulletFire>(out BulletFire bulletFire))
+        {
+            bulletFire.enemyLayer = enemyLayer;
+            bulletFire.damage = character.damage;
+        }
+        
     }
 
     private void OnDrawGizmosSelected()//Hàm vẽ

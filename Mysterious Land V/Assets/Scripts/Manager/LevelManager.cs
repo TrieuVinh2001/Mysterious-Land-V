@@ -78,7 +78,8 @@ public class LevelManager : MonoBehaviour
 
         string jsonData = JsonUtility.ToJson(dataContainer);
         PlayerPrefs.SetString("Data", jsonData);//Xét giá trị cho dữ liệu để dùng khi chuyển sang màn chơi
-
+        PlayerPrefs.SetInt("Hero", 1);
+        PlayerPrefs.SetInt("Skill", 1);
         SceneManager.LoadScene(0);//Chuyển scene
     }
 }

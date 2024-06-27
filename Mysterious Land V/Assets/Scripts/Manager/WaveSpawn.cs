@@ -29,6 +29,7 @@ public class WaveSpawn : MonoBehaviour
             yield return new WaitForSeconds(delay);//Thời gian chờ tạo wave
 
         //if (PlayerController.instance != null)
-        Instantiate(Wave, point.position, Quaternion.identity);//Tạo wave
+        GameObject enemy = Instantiate(Wave, point.position, Quaternion.identity);//Tạo wave
+        enemy.transform.parent = point.transform;
     }
 }

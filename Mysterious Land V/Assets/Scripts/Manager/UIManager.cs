@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,13 +21,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject losePanel;
 
     [SerializeField] private Button settingButton;
-    [SerializeField] private Button closeButton;
-    [SerializeField] private Button homeButton;
-    [SerializeField] private Button retryButton;
-    [SerializeField] private Button continueButton;
-    [SerializeField] private Button nextLevelButton;
-
-    
 
     private void Start()
     {
@@ -35,11 +29,6 @@ public class UIManager : MonoBehaviour
     }
 
     private void Update()
-    {
-        
-    }
-
-    private void SettingButtonClick()
     {
         
     }
@@ -60,5 +49,34 @@ public class UIManager : MonoBehaviour
     public void UpdateHealthBuildingEnemy(int health)
     {
         healthMain.text = health + "/" + 999;
+    }
+
+    private void SettingButtonClick()
+    {
+        pausePanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void ContinueButtonClick()
+    {
+        Time.timeScale = 1f;
+        pausePanel.SetActive(false);
+    }
+
+    public void MenuButtonClick()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Home");
+    }
+
+    public void RetryButtonClick()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void NextLevelButton()
+    {
+
     }
 }
