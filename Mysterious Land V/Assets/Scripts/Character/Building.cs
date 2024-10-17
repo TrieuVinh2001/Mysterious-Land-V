@@ -15,12 +15,21 @@ public class Building : MonoBehaviour
     {
         if (hp - damage > 0)
         {
-            hp -= damage;
             UpdateUI();
+            hp -= damage;
         }
         else
         {
             hp = 0;
+            UpdateUI();
+            if (gameObject.layer == 7)//Player
+            {
+                GameManager.instance.uiManager.GameLose();
+            }
+            else
+            {
+                GameManager.instance.uiManager.GameWin();
+            }
             DestroyBuilding();
         }
     }

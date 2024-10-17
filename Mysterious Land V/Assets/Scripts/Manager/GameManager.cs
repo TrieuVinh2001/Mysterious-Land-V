@@ -5,17 +5,23 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    [SerializeField] private UIManager uiManager;
+    [HideInInspector] public UIManager uiManager;
 
     public int coin;
     public int level;
     [SerializeField] private int coinUp;
-    [SerializeField] private int coinToUpLevel;
+    public int coinToUpLevel;
 
     public int countCharacter;
     public int maxCountCharacter;
     public int countEnemy;
     public int maxCountEnemy;
+
+    private float timeCountDownAddCoin = 3;
+    public int maxLevel = 5;
+    public float time;
+
+    public int diamond;
 
     private void Awake()
     {
@@ -27,6 +33,14 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //StartCoroutine(DisplayBannerWithDelay());
+    }
+
+    private IEnumerator DisplayBannerWithDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        AdsManager.Instance.bannerAds.ShowBannerAd();
     }
 
     private void Start()
@@ -36,19 +50,34 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+        }
+        else
+        {
+            time = 0;
+            uiManager.GameLose();
+        }
+
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+        uiManager.time.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     public void UpLevel()
     {
-        if (coin > coinToUpLevel)
+        if (coin >= coinToUpLevel && level < maxLevel)
         {
             coin -= coinToUpLevel;
             coinUp += 1;
             level += 1;
-            coinToUpLevel = coinToUpLevel * 2;
-            maxCountCharacter += 10;
+            if(level != maxLevel)
+            {
+                coinToUpLevel = coinToUpLevel * 2;
+            }
             uiManager.UpdateUI();
+            uiManager.UpdateCoinToUpLevelText();
         }
     }
 
@@ -56,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(timeCountDownAddCoin);
             coin += coinUp;
             uiManager.UpdateUI();
         }
@@ -88,5 +117,16 @@ public class GameManager : MonoBehaviour
     public void UpdateHealthBuildEnemy(int healthBuild)
     {
         uiManager.UpdateHealthBuildingEnemy(healthBuild);
+    }
+
+
+    public void AddDiamondToData()
+    {
+
+    }
+
+    public void AddDiamondReward(int reward)
+    {
+        diamond += 100 * reward;
     }
 }

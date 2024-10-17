@@ -54,6 +54,7 @@ public class CardClick : MonoBehaviour, IPointerClickHandler
                     selectChar.cards[i].GetComponent<CardClick>().gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
                 }
             }
+
             selectChar.indexSelected = index;
             selectChar.isSkill = false;
             selectChar.isHero = false;
@@ -77,5 +78,6 @@ public class CardClick : MonoBehaviour, IPointerClickHandler
         coolDownImage.gameObject.SetActive(true);
         isCoolDown = true;
         timeDown = timeCoolDown;
+        GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
     }
 }

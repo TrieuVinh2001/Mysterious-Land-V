@@ -6,8 +6,9 @@ using UnityEngine;
 public class CharacterWave
 {
     public GameObject characterPrefab;
-    public float timeWaitSpawn;
-    public int areaToSpawn;
+    //public float timeWaitSpawn;
+    //public int areaToSpawn;
+    public Vector2Int timeAndArea;
 }
 
 public class WaveSpawn : MonoBehaviour
@@ -19,7 +20,7 @@ public class WaveSpawn : MonoBehaviour
     {
         for (int i = 0; i < characterWaves.Length; i++)
         {
-            StartCoroutine(CreateEnemyWave(characterWaves[i].timeWaitSpawn, characterWaves[i].characterPrefab, pointSpawn[characterWaves[i].areaToSpawn]));//Tạo các wave
+            StartCoroutine(CreateEnemyWave(characterWaves[i].timeAndArea.x, characterWaves[i].characterPrefab, pointSpawn[characterWaves[i].timeAndArea.y]));//Tạo các wave
         }
     }
 
@@ -31,5 +32,6 @@ public class WaveSpawn : MonoBehaviour
         //if (PlayerController.instance != null)
         GameObject enemy = Instantiate(Wave, point.position, Quaternion.identity);//Tạo wave
         enemy.transform.parent = point.transform;
+        GameManager.instance.ChangeCountEnemy(1);
     }
 }

@@ -6,6 +6,7 @@ public class CharacterRanger : CharacterBase
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private bool isTargetBullet;
 
     protected override void Update()
     {
@@ -36,6 +37,11 @@ public class CharacterRanger : CharacterBase
         RaycastHit2D[] checks = Physics2D.RaycastAll(checkPoint.position, Vector2.right, character.attackRange, enemyLayer);//kiểm tra trong phạm vi những vật có layer là enemyLayer
         if (checks.Length > 0)//Nếu trong vùng có
         {
+            if (isTargetBullet)
+            {
+                checkPoint = checks[0].transform;
+            }
+
             BulletSpawn();
         }
     }
@@ -48,7 +54,7 @@ public class CharacterRanger : CharacterBase
             bul.moveSpeed = bulletSpeed;
             bul.damage = character.damage;
         }
-        if(bullet.TryGetComponent<BulletFire>(out BulletFire bulletFire))
+        else if(bullet.TryGetComponent<BulletFire>(out BulletFire bulletFire))
         {
             bulletFire.enemyLayer = enemyLayer;
             bulletFire.damage = character.damage;

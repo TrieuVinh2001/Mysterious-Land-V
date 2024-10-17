@@ -1,0 +1,640 @@
+fileFormatVersion: 2
+guid: 5382178d759cadb4f82c68a822a6ae09
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3487967571191127912
+    second: Fire Bullet Pixel All_0
+  - first:
+      213: 8123690483314685083
+    second: Fire Bullet Pixel All_1
+  - first:
+      213: 3399825287507068509
+    second: Fire Bullet Pixel All_2
+  - first:
+      213: -3297927675312246364
+    second: Fire Bullet Pixel All_3
+  - first:
+      213: -2394979289694853329
+    second: Fire Bullet Pixel All_4
+  - first:
+      213: 9170508635106652693
+    second: Fire Bullet Pixel All_5
+  - first:
+      213: -858449736963804660
+    second: Fire Bullet Pixel All_6
+  - first:
+      213: 3692868592958232222
+    second: Fire Bullet Pixel All_7
+  - first:
+      213: -1320614636450786633
+    second: Fire Bullet Pixel All_8
+  - first:
+      213: -8865062803549965557
+    second: Fire Bullet Pixel All_9
+  - first:
+      213: 1607637364079296962
+    second: Fire Bullet Pixel All_10
+  - first:
+      213: 82254164262249729
+    second: Fire Bullet Pixel All_11
+  - first:
+      213: -6857067994241018157
+    second: Fire Bullet Pixel All_12
+  - first:
+      213: 7694805024809541799
+    second: Fire Bullet Pixel All_13
+  - first:
+      213: 2866420322111624991
+    second: Fire Bullet Pixel All_14
+  - first:
+      213: -1399462922515910626
+    second: Fire Bullet Pixel All_15
+  - first:
+      213: 5215760587287460531
+    second: Fire Bullet Pixel All_16
+  - first:
+      213: 1229915880680651626
+    second: Fire Bullet Pixel All_17
+  - first:
+      213: 2790069686485348806
+    second: Fire Bullet Pixel All_18
+  - first:
+      213: 626356264307015781
+    second: Fire Bullet Pixel All_19
+  - first:
+      213: 1734922004147655113
+    second: Fire Bullet Pixel All_20
+  - first:
+      213: 5168254307717564534
+    second: Fire Bullet Pixel All_21
+  - first:
+      213: -7842529595610298992
+    second: Fire Bullet Pixel All_22
+  - first:
+      213: -2971934605136901423
+    second: Fire Bullet Pixel All_23
+  - first:
+      213: -1024450984933249617
+    second: Fire Bullet Pixel All_24
+  - first:
+      213: 2303610617858912622
+    second: Fire Bullet Pixel All_25
+  - first:
+      213: -6383675954228448022
+    second: Fire Bullet Pixel All_26
+  - first:
+      213: 4647599514281399785
+    second: Fire Bullet Pixel All_27
+  - first:
+      213: 6672568117840679165
+    second: Fire Bullet Pixel All_28
+  - first:
+      213: -6174751940511864352
+    second: Fire Bullet Pixel All_29
+  - first:
+      213: -4146262048963716329
+    second: Fire Bullet Pixel All_30
+  - first:
+      213: -5778725724768704303
+    second: Fire Bullet Pixel All_31
+  - first:
+      213: -4917031511232660665
+    second: Fire Bullet Pixel All_32
+  - first:
+      213: -9127899065656560253
+    second: Fire Bullet Pixel All_33
+  - first:
+      213: 3123723240798159112
+    second: Fire Bullet Pixel All_34
+  - first:
+      213: -445442271766177095
+    second: Fire Bullet Pixel All_35
+  - first:
+      213: 1436714890874580089
+    second: Fire Bullet Pixel All_36
+  - first:
+      213: -4171878162133663161
+    second: Fire Bullet Pixel All_37
+  - first:
+      213: -3491394010359804761
+    second: Fire Bullet Pixel All_38
+  - first:
+      213: 8601661356103719806
+    second: Fire Bullet Pixel All_39
+  - first:
+      213: 1219868463271333558
+    second: Fire Bullet Pixel All_40
+  - first:
+      213: -8380230830187239842
+    second: Fire Bullet Pixel All_41
+  - first:
+      213: 76851267477925798
+    second: Fire Bullet Pixel All_42
+  - first:
+      213: 813647895975912828
+    second: Fire Bullet Pixel All_43
+  - first:
+      213: -1403650912811701936
+    second: Fire Bullet Pixel All_44
+  - first:
+      213: 8821245850706890948
+    second: Fire Bullet Pixel All_45
+  - first:
+      213: 1835176682298078073
+    second: Fire Bullet Pixel All_46
+  - first:
+      213: 257315840797825792
+    second: Fire Bullet Pixel All_47
+  - first:
+      213: 6109669657170477717
+    second: Fire Bullet Pixel All_48
+  - first:
+      213: 326554383571833519
+    second: Fire Bullet Pixel All_49
+  - first:
+      213: -5066394781770557415
+    second: Fire Bullet Pixel All_50
+  - first:
+      213: -9034623155391106759
+    second: Fire Bullet Pixel All_51
+  - first:
+      213: -1273256851496803855
+    second: Fire Bullet Pixel All_52
+  - first:
+      213: 6013141531016693973
+    second: Fire Bullet Pixel All_53
+  - first:
+      213: -6124347177645677441
+    second: Fire Bullet Pixel All_54
+  - first:
+      213: -1430645325373671523
+    second: Fire Bullet Pixel All_55
+  - first:
+      213: 3084236304905114527
+    second: Fire Bullet Pixel All_56
+  - first:
+      213: 3980166550882347814
+    second: Fire Bullet Pixel All_57
+  - first:
+      213: -954766779044254888
+    second: Fire Bullet Pixel All_58
+  - first:
+      213: -2284038772715288758
+    second: Fire Bullet Pixel All_59
+  - first:
+      213: -2997560121063451604
+    second: Fire Bullet Pixel All_60
+  - first:
+      213: -7882398667089404319
+    second: Fire Bullet Pixel All_61
+  - first:
+      213: 6961063344037854030
+    second: Fire Bullet Pixel All_62
+  - first:
+      213: 2241207586218049907
+    second: Fire Bullet Pixel All_63
+  - first:
+      213: -8907753186930252999
+    second: Fire Bullet Pixel All_64
+  - first:
+      213: 6595665309509772861
+    second: Fire Bullet Pixel All_65
+  - first:
+      213: 5390251729780710586
+    second: Fire Bullet Pixel All_66
+  - first:
+      213: -7010518989693275662
+    second: Fire Bullet Pixel All_67
+  - first:
+      213: -7863745342847514148
+    second: Fire Bullet Pixel All_68
+  - first:
+      213: -2385864538925222355
+    second: Fire Bullet Pixel All_69
+  - first:
+      213: 6545126774908333591
+    second: Fire Bullet Pixel All_70
+  - first:
+      213: -3231803269930809732
+    second: Fire Bullet Pixel All_71
+  - first:
+      213: 4777693187336983823
+    second: Fire Bullet Pixel All_72
+  - first:
+      213: -305600309753440182
+    second: Fire Bullet Pixel All_73
+  - first:
+      213: -2844889684315862538
+    second: Fire Bullet Pixel All_74
+  - first:
+      213: 4021649797933952136
+    second: Fire Bullet Pixel All_75
+  - first:
+      213: -6475097669043195398
+    second: Fire Bullet Pixel All_76
+  - first:
+      213: 2666084660714039702
+    second: Fire Bullet Pixel All_77
+  - first:
+      213: -7907966589236504350
+    second: Fire Bullet Pixel All_78
+  - first:
+      213: 423163984847660303
+    second: Fire Bullet Pixel All_79
+  - first:
+      213: 6643174452250255889
+    second: Fire Bullet Pixel All_80
+  - first:
+      213: 85066182834787589
+    second: Fire Bullet Pixel All_81
+  - first:
+      213: -1181420182006199285
+    second: Fire Bullet Pixel All_82
+  - first:
+      213: -4101481278094075533
+    second: Fire Bullet Pixel All_83
+  - first:
+      213: 4945712636854201680
+    second: Fire Bullet Pixel All_84
+  - first:
+      213: 1390848681087646236
+    second: Fire Bullet Pixel All_85
+  - first:
+      213: 5954207317573627328
+    second: Fire Bullet Pixel All_86
+  - first:
+      213: -9184574518557641093
+    second: Fire Bullet Pixel All_87
+  - first:
+      213: 518834117568912193
+    second: Fire Bullet Pixel All_88
+  - first:
+      213: 861969745528595298
+    second: Fire Bullet Pixel All_89
+  - first:
+      213: -7722733695355203974
+    second: Fire Bullet Pixel All_90
+  - first:
+      213: -4030788415360326402
+    second: Fire Bullet Pixel All_91
+  - first:
+      213: -1303025879354500270
+    second: Fire Bullet Pixel All_92
+  - first:
+      213: -2808998924325132293
+    second: Fire Bullet Pixel All_93
+  - first:
+      213: -4090935490431960013
+    second: Fire Bullet Pixel All_94
+  - first:
+      213: 7586170654696550506
+    second: Fire Bullet Pixel All_95
+  - first:
+      213: 7573674789381050483
+    second: Fire Bullet Pixel All_96
+  - first:
+      213: -9216221237479005859
+    second: Fire Bullet Pixel All_97
+  - first:
+      213: 7563366361870909
+    second: Fire Bullet Pixel All_98
+  - first:
+      213: -3175500619936023369
+    second: Fire Bullet Pixel All_99
+  - first:
+      213: -1163807254947793268
+    second: Fire Bullet Pixel All_100
+  - first:
+      213: 2939598593763689204
+    second: Fire Bullet Pixel All_101
+  - first:
+      213: -3461296911639680678
+    second: Fire Bullet Pixel All_102
+  - first:
+      213: -8300757004692569801
+    second: Fire Bullet Pixel All_103
+  - first:
+      213: 3338198402563228542
+    second: Fire Bullet Pixel All_104
+  - first:
+      213: -748656228131139856
+    second: Fire Bullet Pixel All_105
+  - first:
+      213: 574364673154111457
+    second: Fire Bullet Pixel All_106
+  - first:
+      213: -4040881129930124503
+    second: Fire Bullet Pixel All_107
+  - first:
+      213: -632476306536006174
+    second: Fire Bullet Pixel All_108
+  - first:
+      213: -4758183940761716038
+    second: Fire Bullet Pixel All_109
+  - first:
+      213: 3045231486571936038
+    second: Fire Bullet Pixel All_110
+  - first:
+      213: 8796945540472724052
+    second: Fire Bullet Pixel All_111
+  - first:
+      213: -8785386926271059096
+    second: Fire Bullet Pixel All_112
+  - first:
+      213: -7700867199245276098
+    second: Fire Bullet Pixel All_113
+  - first:
+      213: -5052735922690501122
+    second: Fire Bullet Pixel All_114
+  - first:
+      213: 6687949378263526810
+    second: Fire Bullet Pixel All_115
+  - first:
+      213: -2030943531639422034
+    second: Fire Bullet Pixel All_116
+  - first:
+      213: -3358160232128951592
+    second: Fire Bullet Pixel All_117
+  - first:
+      213: 2158186245281827208
+    second: Fire Bullet Pixel All_118
+  - first:
+      213: -1596869061156114412
+    second: Fire Bullet Pixel All_119
+  - first:
+      213: 1925581993857237675
+    second: Fire Bullet Pixel All_120
+  - first:
+      213: 1053933264055886127
+    second: Fire Bullet Pixel All_121
+  - first:
+      213: -4351813740285038048
+    second: Fire Bullet Pixel All_122
+  - first:
+      213: -3804286152692991822
+    second: Fire Bullet Pixel All_123
+  - first:
+      213: 3991331951357510859
+    second: Fire Bullet Pixel All_124
+  - first:
+      213: -7246266432057700559
+    second: Fire Bullet Pixel All_125
+  - first:
+      213: -8586578369861971653
+    second: Fire Bullet Pixel All_126
+  - first:
+      213: 3200999420651072753
+    second: Fire Bullet Pixel All_127
+  - first:
+      213: -723958360112168441
+    second: Fire Bullet Pixel All_128
+  - first:
+      213: -589443875223446046
+    second: Fire Bullet Pixel All_129
+  - first:
+      213: 7408285353274033503
+    second: Fire Bullet Pixel All_130
+  - first:
+      213: 524701561821759334
+    second: Fire Bullet Pixel All_131
+  - first:
+      213: -7751867655939392101
+    second: Fire Bullet Pixel All_132
+  - first:
+      213: -2227952954388856525
+    second: Fire Bullet Pixel All_133
+  - first:
+      213: 5827433628413130874
+    second: Fire Bullet Pixel All_134
+  - first:
+      213: -8959621177776470494
+    second: Fire Bullet Pixel All_135
+  - first:
+      213: 4369627181093492139
+    second: Fire Bullet Pixel All_136
+  - first:
+      213: 4675840335728954463
+    second: Fire Bullet Pixel All_137
+  - first:
+      213: -5981173602556365933
+    second: Fire Bullet Pixel All_138
+  - first:
+      213: -7399284318840497204
+    second: Fire Bullet Pixel All_139
+  - first:
+      213: -100439636806010981
+    second: Fire Bullet Pixel All_140
+  - first:
+      213: 2114503691735883395
+    second: Fire Bullet Pixel All_141
+  - first:
+      213: -7501576780758723390
+    second: Fire Bullet Pixel All_142
+  - first:
+      213: 6538453842538200438
+    second: Fire Bullet Pixel All_143
+  - first:
+      213: -780921300526420393
+    second: Fire Bullet Pixel All_144
+  - first:
+      213: -9139425030579180153
+    second: Fire Bullet Pixel All_145
+  - first:
+      213: 7059946053035141204
+    second: Fire Bullet Pixel All_146
+  - first:
+      213: 8698380970511320431
+    second: Fire Bullet Pixel All_147
+  - first:
+      213: -3640392639968069968
+    second: Fire Bullet Pixel All_148
+  - first:
+      213: 2823250384161430362
+    second: Fire Bullet Pixel All_149
+  - first:
+      213: -6549140380118639439
+    second: Fire Bullet Pixel All_150
+  - first:
+      213: 4736514122413840705
+    second: Fire Bullet Pixel All_151
+  - first:
+      213: -4961389216810752386
+    second: Fire Bullet Pixel All_152
+  - first:
+      213: -6618272876733437015
+    second: Fire Bullet Pixel All_153
+  - first:
+      213: 2339380908259949609
+    second: Fire Bullet Pixel All_154
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fire_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2
+        width: 48
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d43a0760ac7d8142af8b18585032ed8
+      internalID: 1290092455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Fire_0: 1290092455
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

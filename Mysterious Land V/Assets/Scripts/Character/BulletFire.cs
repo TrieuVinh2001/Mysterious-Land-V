@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletFire : MonoBehaviour
 {
     [SerializeField] private Transform pointDealDamage;
+    [SerializeField] private float rangeDealDamage;
     public int damage;
     public LayerMask enemyLayer;
 
@@ -16,7 +17,7 @@ public class BulletFire : MonoBehaviour
 
     private void DealDamage()
     {
-        Collider2D[] checks = Physics2D.OverlapCircleAll(pointDealDamage.position, 1, enemyLayer);
+        Collider2D[] checks = Physics2D.OverlapCircleAll(pointDealDamage.position, rangeDealDamage, enemyLayer);
         if (checks.Length > 0)
         {
             if (checks[0].TryGetComponent(out Building building))
@@ -32,6 +33,6 @@ public class BulletFire : MonoBehaviour
 
     private void OnDrawGizmosSelected()//Hàm vẽ
     {
-        Gizmos.DrawWireSphere(pointDealDamage.position, 0.75f);
+        Gizmos.DrawWireSphere(pointDealDamage.position, rangeDealDamage);
     }
 }

@@ -5,6 +5,8 @@ using TMPro;
 
 public class SelectedCharacter : MonoBehaviour
 {
+    [SerializeField] private bool dataChar;
+    [SerializeField] private List<int> idChar = new List<int>();
     public int indexSelected;//Thứ tự của character sẽ được spawn trong list
     public List<GameObject> characterPrefabs = new List<GameObject>();//Danh sách prefab sẽ được chọn trong màn chơi
     public GameObject heroPrefab;
@@ -28,10 +30,14 @@ public class SelectedCharacter : MonoBehaviour
     {
         GetIdData();//Lấy Id
 
+        if (!dataChar)
+        {
+            idCharacters = idChar;
+        }
+
         GetCharacter();
         GetHero();
         GetSkill();
-
     }
 
     private void GetCharacter()

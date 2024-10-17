@@ -14,7 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countCharater;
     [SerializeField] private TextMeshProUGUI countEnemy;
     [SerializeField] private TextMeshProUGUI level;
-    [SerializeField] private TextMeshProUGUI time;
+    public TextMeshProUGUI time;
+    [SerializeField] private TextMeshProUGUI coinToUpLevel;
 
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject winPanel;
@@ -26,6 +27,7 @@ public class UIManager : MonoBehaviour
     {
         settingButton.onClick.AddListener(SettingButtonClick);//Khi nhấn nút thì thực hiện hàm SettingButtonClick
         UpdateUI();
+        UpdateCoinToUpLevelText();
     }
 
     private void Update()
@@ -39,16 +41,28 @@ public class UIManager : MonoBehaviour
         countCharater.text = GameManager.instance.countCharacter + "/" + GameManager.instance.maxCountCharacter;
         countEnemy.text = "" + GameManager.instance.countEnemy +"/"+ GameManager.instance.maxCountEnemy;
         level.text = "Level: " + GameManager.instance.level;
+        
+    }
+
+    public void UpdateCoinToUpLevelText()
+    {
+        coinToUpLevel.text = "" + GameManager.instance.coinToUpLevel;
+        if (GameManager.instance.level == GameManager.instance.maxLevel)
+        {
+            coinToUpLevel.text = "Max";
+        }
     }
 
     public void UpdateHealthBuildingCharacter(int health)
     {
         healthMain.text = health +"/"+999;
+        healthMain.gameObject.transform.parent.GetComponent<Image>().fillAmount = (float)health / 999;
     }
 
     public void UpdateHealthBuildingEnemy(int health)
     {
-        healthMain.text = health + "/" + 999;
+        healthEnemy.text = health + "/" + 999;
+        healthEnemy.gameObject.transform.parent.GetComponent<Image>().fillAmount = (float)health / 999;
     }
 
     private void SettingButtonClick()
@@ -72,11 +86,30 @@ public class UIManager : MonoBehaviour
     public void RetryButtonClick()
     {
         Time.timeScale = 1f;
+        AdsManager.Instance.interstitialAds.ShowInterstitialAd();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void NextLevelButton()
+    public void RewardBonusButtonClick()
+    {
+        AdsManager.Instance.rewardedAds.ShowRewardedAd();
+    }
+
+    public void NextLevelButton(string nameLevel)
     {
 
+    }
+
+    public void GameWin()
+    {
+        winPanel.SetActive(true);
+        
+        Time.timeScale = 0f;
+    }
+
+    public void GameLose()
+    {
+        //losePanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
