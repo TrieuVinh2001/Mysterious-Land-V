@@ -8889,7 +8889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectChar: {fileID: 5858920986807054604}
-  characterSO: {fileID: 0}
+  characterSO: {fileID: 11400000, guid: c90f841cdb14dd24fbd87385e2f629f8, type: 2}
+  prefab: {fileID: 5843800483165856741, guid: 95213be0515ee8f44b8883c66773b47e, type: 3}
   coolDownImage: {fileID: 0}
 --- !u!222 &111350466422965971
 CanvasRenderer:
@@ -9983,17 +9984,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataChar: 1
-  idChar: 
+  idChar: []
   indexSelected: 0
+  prefab: {fileID: 0}
   characterPrefabs: []
   heroPrefab: {fileID: 0}
   skillPrefab: {fileID: 0}
   allPrefabChar:
   - {fileID: 8488190571552206033, guid: 4f1cfb9007a8c8b47945d78236e76621, type: 3}
+  - {fileID: 8488190571552206033, guid: acffe1a90e0cdd84099e3df99840e460, type: 3}
+  - {fileID: 8488190571552206033, guid: a39347d239a91c843ba9b8da4a70840b, type: 3}
+  - {fileID: 4681700500422474545, guid: bb3db3c826557924788683c9456e89a4, type: 3}
   - {fileID: 4206574660737139205, guid: 7fc7387053bd559449cf47299f4c5d4a, type: 3}
   - {fileID: 4206574660737139205, guid: 0d45a03c5e5029c4aa4cfd0104bfee74, type: 3}
+  - {fileID: 127726853753940759, guid: a59331a69757c5e4d8500678e12fc8ad, type: 3}
+  - {fileID: 7868594826688724288, guid: 9e103ac8f8e53c84bafbcc7fd934ddea, type: 3}
   - {fileID: 8488190571552206033, guid: 68a9664a8d8df8240be067f09d6605dd, type: 3}
   - {fileID: 8488190571552206033, guid: 295f3af1222a53148bb0657e57aa3815, type: 3}
+  - {fileID: 6643120501169734777, guid: d3dd6c3a451680e44ac3e8df0df110e2, type: 3}
   allPrefabHero:
   - {fileID: 5843800483165856741, guid: 95213be0515ee8f44b8883c66773b47e, type: 3}
   allPrefabSkill:
@@ -10008,7 +10016,7 @@ MonoBehaviour:
   - {fileID: 4467082779879789686}
   cardHero: {fileID: 2145590995}
   cardSkill: {fileID: 325264754}
-  idCharacters: 
+  characterSO: []
   idHero: 0
   idSkill: 0
   isHero: 0
@@ -10047,6 +10055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   characterSO: {fileID: 0}
+  prefab: {fileID: 0}
   coolDownImage: {fileID: 1290830010}
 --- !u!114 &5894802120799041761
 MonoBehaviour:
@@ -10441,6 +10450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   characterSO: {fileID: 0}
+  prefab: {fileID: 0}
   coolDownImage: {fileID: 1248402173}
 --- !u!114 &7846502296319465252
 MonoBehaviour:
@@ -10540,6 +10550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   characterSO: {fileID: 0}
+  prefab: {fileID: 0}
   coolDownImage: {fileID: 1928506272}
 --- !u!114 &7954426637896320952
 MonoBehaviour:
@@ -10607,6 +10618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   characterSO: {fileID: 0}
+  prefab: {fileID: 0}
   coolDownImage: {fileID: 470531628}
 --- !u!114 &8089289284919944425
 MonoBehaviour:
@@ -10674,6 +10686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   characterSO: {fileID: 0}
+  prefab: {fileID: 0}
   coolDownImage: {fileID: 1065321740}
 --- !u!114 &8167616327740582905
 MonoBehaviour:
@@ -10836,6 +10849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   characterSO: {fileID: 0}
+  prefab: {fileID: 0}
   coolDownImage: {fileID: 1046637942}
 --- !u!114 &9009448219274359007
 MonoBehaviour:
@@ -10915,6 +10929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   characterSO: {fileID: 0}
+  prefab: {fileID: 0}
   coolDownImage: {fileID: 783924112}
 --- !u!114 &9216341131796993912
 MonoBehaviour:

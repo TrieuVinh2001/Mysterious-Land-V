@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class ShowCard : MonoBehaviour
 {
-    public int id;
+    public CharacterSO characterSO;
 
     public void ClickRemoveCard()//Ấn vào thẻ đã chọn để xóa
     {
-        LevelManager.instance.idCharacters.Remove(id);
-        LevelManager.instance.ShowAfterRemove(id);
+        LevelManager.instance.ClickRemoveCharacterCard(characterSO);
     }
 }

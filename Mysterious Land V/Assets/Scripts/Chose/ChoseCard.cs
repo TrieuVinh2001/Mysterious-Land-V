@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class ChoseCard : MonoBehaviour
 {
-
-    [SerializeField] private CharacterSO characterSO;
-
-    private int idCard;
-
-    private void Start()
-    {
-        idCard = characterSO.id;
-    }
+    public CharacterSO characterSO;
+    public GameObject coolCard;
 
     public void ClickAddCard()//Nhấn để thêm thẻ vào danh sách các thẻ sẽ dùng trong màn chơi
     {
-        LevelManager.instance.idCharacters.Add(idCard);
+        if (LevelManager.instance.characterSelected.Count >= 6)
+            return;
 
-        LevelManager.instance.ShowCard(characterSO);   
+        LevelManager.instance.ClickAddCharacterCard(characterSO);
+
+        coolCard.SetActive(true);
     }
 
 }

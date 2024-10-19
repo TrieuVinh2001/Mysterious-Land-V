@@ -119,3 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb9cf882d4d7e545bcb4378bd4580ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointDealDamage: {fileID: 7771397148025909288}
+  rangeDealDamage: 0.8
+  damage: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0

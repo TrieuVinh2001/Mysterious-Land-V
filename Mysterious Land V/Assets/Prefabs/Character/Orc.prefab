@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4149809765a59a74ea030325477101bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: 770712ce5f1e65b479d9ec6e92e9919f, type: 2}
+  character: {fileID: 11400000, guid: e22c4c9cbefbb0e4e83da65360f1a79e, type: 2}
   isAttack: 0
   checkPoint: {fileID: 6562257849408935247}
   enemyLayer:

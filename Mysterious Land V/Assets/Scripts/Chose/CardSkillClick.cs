@@ -41,8 +41,7 @@ public class CardSkillClick : MonoBehaviour, IPointerClickHandler
         if (button.enabled)
         {
             selectedChar.isSkill = true;
-            selectedChar.isHero = false;
-            selectedChar.indexSelected = -1;
+            selectedChar.prefab = null;
 
             timeDown = timeCoolDown;
 

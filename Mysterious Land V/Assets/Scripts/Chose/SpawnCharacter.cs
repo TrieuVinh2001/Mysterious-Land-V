@@ -48,21 +48,14 @@ public class SpawnCharacter : MonoBehaviour
     {
         if (GameManager.instance.countCharacter < GameManager.instance.maxCountCharacter)//khi nhấn vào khu vực thả quân
         {
-            if (selectedChar.indexSelected < 0 && !selectedChar.isHero || selectedChar.isSkill)
-                return;
-
-            if (selectedChar.isHero)
+            if(selectedChar.prefab != null)
             {
-                SpawnHeroOnArea();
-            }
-            else
-            {
-                SpawCharacterOnArea();
+                SpawnChar();
             }
         }
     }
 
-    private void SpawCharacterOnArea()
+    private void SpawnChar()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
@@ -71,17 +64,27 @@ public class SpawnCharacter : MonoBehaviour
 
         if (hit.collider != null && hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area))
         {
-            int coinCharacter = selectedChar.characterPrefabs[selectedChar.indexSelected].GetComponent<CharacterBase>().GetCharacterSO().coin;
+            int coinCharacter = selectedChar.prefab.GetComponent<CharacterBase>().GetCharacterSO().coin;
             if (coinCharacter > GameManager.instance.coin)
                 return;
 
-            Spawn(selectedChar.characterPrefabs[selectedChar.indexSelected], area.posSpawn, area.gameObject, coinCharacter);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
-            selectedChar.cards[selectedChar.indexSelected].GetComponent<CardClick>().CoolDown();
-            selectedChar.indexSelected = -1;//Reset lại index để phải chọn lại quân để spawn
+            Spawn(selectedChar.prefab, area.posSpawn, area.gameObject, coinCharacter);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
+            
+            for(int i = 0; i<selectedChar.cards.Length; i++)
+            {
+                if(selectedChar.prefab == selectedChar.cards[i].GetComponent<CardClick>().prefab)
+                {
+                    selectedChar.cards[i].GetComponent<CardClick>().CoolDown();
+                }
+            }
 
+            selectedChar.prefab = null;
             StartCoroutine(BackGroundArea(area.gameObject.transform.GetChild(0).gameObject));
         }
+    }
 
+    private void SpawCharacterOnArea()
+    {
         //if (hit.collider != null/* && hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area)*/)
         //{
         //    if (hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area))
@@ -111,36 +114,6 @@ public class SpawnCharacter : MonoBehaviour
         //    }
 
         //}
-    }
-
-    private void SpawnHeroOnArea()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);//xác định điểm nhấn dựa vào raycast
-
-        //if (hit.collider != null && hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area))
-        //{
-        //    Spawn(selectedChar.heroPrefab, area.posSpawn, area.gameObject, 0);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
-        //    selectedChar.isHero = false;
-        //}
-
-        if (hit.collider != null/* && hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area)*/)
-        {
-            if (hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area))
-            {
-                Spawn(selectedChar.heroPrefab, area.posSpawn, area.gameObject, 0);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
-                selectedChar.isHero = false;
-            }
-            else if (hit.collider.TryGetComponent<CharacterBase>(out CharacterBase charBase))
-            {
-                AreaSpawn areaSpawn = charBase.gameObject.transform.parent.GetComponent<AreaSpawn>();
-                Spawn(selectedChar.heroPrefab, areaSpawn.posSpawn, area.gameObject, 0);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
-                selectedChar.isHero = false;
-            }
-
-        }
     }
 
     private void Spawn(GameObject prefab, Vector2 posSpawn, GameObject areaParent, int coinCharacter)

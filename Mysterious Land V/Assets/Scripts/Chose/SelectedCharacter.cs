@@ -6,8 +6,8 @@ using TMPro;
 public class SelectedCharacter : MonoBehaviour
 {
     [SerializeField] private bool dataChar;
-    [SerializeField] private List<int> idChar = new List<int>();
-    public int indexSelected;//Thứ tự của character sẽ được spawn trong list
+    [SerializeField] private List<CharacterSO> charSO = new List<CharacterSO>();
+    public GameObject prefab;
     public List<GameObject> characterPrefabs = new List<GameObject>();//Danh sách prefab sẽ được chọn trong màn chơi
     public GameObject heroPrefab;
     public GameObject skillPrefab;
@@ -19,20 +19,19 @@ public class SelectedCharacter : MonoBehaviour
     [SerializeField] private GameObject cardHero;//Thẻ chọn anh hùng
     [SerializeField] private GameObject cardSkill;//Thẻ chọn kỹ năng
 
-    [SerializeField] private List<int> idCharacters = new List<int>();//Danh sách id của nhân vật
+    [SerializeField] private List<CharacterSO> characterSO = new List<CharacterSO>();
     [SerializeField] private int idHero;
     [SerializeField] private int idSkill;
 
-    public bool isHero;
     public bool isSkill;
 
     private void Awake()
     {
-        GetIdData();//Lấy Id
+        GetData();//Lấy Id
 
         if (!dataChar)
         {
-            idCharacters = idChar;
+            characterSO = charSO;
         }
 
         GetCharacter();
@@ -42,28 +41,25 @@ public class SelectedCharacter : MonoBehaviour
 
     private void GetCharacter()
     {
-        for (int i = 0; i < idCharacters.Count; i++)
+        for (int i = 0; i < characterSO.Count; i++)
         {
-            cards[i].GetComponent<CardClick>().index = i;
-
-            cards[i].transform.parent.gameObject.SetActive(true);//Hiện thẻ
-
             foreach (var prefab in allPrefabChar)//Thêm prefab vào danh sách các prefab sẽ dùng trong màn chơi
             {
-                if (prefab.GetComponent<CharacterBase>().GetCharacterSO().id == idCharacters[i])
+                if (prefab.GetComponent<CharacterBase>().GetCharacterSO() == characterSO[i])
                 {
                     characterPrefabs.Add(prefab);
-                    cards[i].GetComponent<CardClick>().characterSO = prefab.GetComponent<CharacterBase>().GetCharacterSO();
-                    cards[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "" + prefab.GetComponent<CharacterBase>().GetCharacterSO().coin;
+                    cards[i].GetComponent<CardClick>().characterSO = characterSO[i];
+                    cards[i].GetComponent<CardClick>().prefab = prefab;
+                    cards[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "" + characterSO[i].coin;
                 }
             }
+
+            cards[i].transform.parent.gameObject.SetActive(true);//Hiện thẻ
         }
     }
 
     private void GetHero()
     {
-        //cardHero.GetComponent<CardHeroClick>().index = idHero;
-
         //cardHero.transform.parent.gameObject.SetActive(true);//Hiện thẻ
 
         foreach (var prefab in allPrefabHero)//Thêm prefab vào danh sách các prefab sẽ dùng trong màn chơi
@@ -91,16 +87,16 @@ public class SelectedCharacter : MonoBehaviour
         }
     }
 
-    private void GetIdData()
+    private void GetData()
     {
         if (PlayerPrefs.HasKey("Data"))//Kiểm tra key
         {
             string jsonData = PlayerPrefs.GetString("Data");//Lấy dữ liệu trong key đã được lưu ở LevelManager
             DataContainer receivedData = JsonUtility.FromJson<DataContainer>(jsonData);//Chuyển dữ liệu từ json sang data cần dùng
 
-            foreach (int id in receivedData.idList)//Thêm các id lấy trong dữ liệu vào danh sách id nhân vật
+            foreach (CharacterSO charSO in receivedData.listSO)//Thêm các id lấy trong dữ liệu vào danh sách id nhân vật
             {
-                idCharacters.Add(id);
+                characterSO.Add(charSO);
             }
         }
 

@@ -9,6 +9,7 @@ public class CardHeroClick : MonoBehaviour, IPointerClickHandler
     [SerializeField] private SelectedCharacter selectChar;
     private Button button;
     public CharacterSO characterSO;
+    public GameObject prefab;
     [SerializeField] private Image coolDownImage;
 
     private void Start()
@@ -23,9 +24,8 @@ public class CardHeroClick : MonoBehaviour, IPointerClickHandler
     {
         if (button.enabled)//Nếu nút hiện
         {
-            selectChar.isHero = true;
             selectChar.isSkill = false;
-            selectChar.indexSelected = -1;
+            selectChar.prefab = prefab;
             button.enabled = false;
         }
     }

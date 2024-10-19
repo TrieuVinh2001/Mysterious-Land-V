@@ -11,6 +11,7 @@ public class CardClick : MonoBehaviour, IPointerClickHandler
     private Button button;
     public int index;//thứ tự trong list
     public CharacterSO characterSO;
+    public GameObject prefab;
 
     [SerializeField] private Image coolDownImage;
     private TextMeshProUGUI timeCoolDownText;
@@ -28,7 +29,6 @@ public class CardClick : MonoBehaviour, IPointerClickHandler
         timeCoolDownText = coolDownImage.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
         timeCoolDown = characterSO.timeCoolDown;
-
     }
 
     private void Update()
@@ -51,13 +51,12 @@ public class CardClick : MonoBehaviour, IPointerClickHandler
                 }
                 else
                 {
-                    selectChar.cards[i].GetComponent<CardClick>().gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+                    selectChar.cards[i].GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
                 }
             }
 
-            selectChar.indexSelected = index;
+            selectChar.prefab = prefab;
             selectChar.isSkill = false;
-            selectChar.isHero = false;
         }
     }
 

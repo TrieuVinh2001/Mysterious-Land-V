@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 [Serializable]
@@ -13,6 +14,8 @@ public class HomeManager : MonoBehaviour
 {
     private DataCharacterOwner dataCharacterOwner;
     public List<int> idCharactersOwner = new List<int>();
+
+    [SerializeField] private GameObject settingPanel;
 
     private void Start()
     {
@@ -54,5 +57,25 @@ public class HomeManager : MonoBehaviour
         string jsonData = JsonUtility.ToJson(dataCharacterOwner);
         PlayerPrefs.SetString("DataCharacterOwner", jsonData);//Xét giá trị cho dữ liệu để dùng khi chuyển sang màn chơi
 
+    }
+
+    public void Setting()
+    {
+        settingPanel.SetActive(true);
+    }
+
+    public void Mission()
+    {
+        SceneManager.LoadScene("SelectLevel");
+    }
+
+    public void Level()
+    {
+        SceneManager.LoadScene("Level");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
