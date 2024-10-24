@@ -19,7 +19,7 @@ public class HomeManager : MonoBehaviour
 
     private void Start()
     {
-        
+        //PlayerPrefs.DeleteAll();
     }
 
     private void Update()
@@ -71,7 +71,7 @@ public class HomeManager : MonoBehaviour
 
     public void Level()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("SelectMap");
     }
 
     public void Exit()

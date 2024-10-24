@@ -150,6 +150,11 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("Hero", 1);
         PlayerPrefs.SetInt("Skill", 1);
 
-        SceneManager.LoadScene(0);//Chuyển scene
+        SceneManager.LoadScene("Map_" + PlayerPrefs.GetInt("MapCurrent"));//Chuyển scene
+    }
+
+    public void ReturnHome()
+    {
+        SceneManager.LoadScene("Home");
     }
 }

@@ -10,7 +10,7 @@ public class CharacterSO : ScriptableObject
     [Header("Attributes")]
     public new string name;
     public int id;
-    public CharacterType type;
+    //public CharacterType type;
     public Sprite image;
     public int coin;
     public int hp;

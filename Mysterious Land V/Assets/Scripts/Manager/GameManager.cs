@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
             level += 1;
             if(level != maxLevel)
             {
-                coinToUpLevel = coinToUpLevel * 2;
+                coinToUpLevel = coinToUpLevel + 10;
             }
             uiManager.UpdateUI();
             uiManager.UpdateCoinToUpLevelText();
@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeCountEnemy(int count)
     {
-        countEnemy +=count;
+        countEnemy += count;
         uiManager.UpdateUI();
     }
 

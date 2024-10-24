@@ -27,7 +27,7 @@ public class BulletFire : MonoBehaviour
             }
 
             checks[0].GetComponent<CharacterBase>().TakeDamage(damage);
-
+            Destroy(gameObject);
         }
     }
 

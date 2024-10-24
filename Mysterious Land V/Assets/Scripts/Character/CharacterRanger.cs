@@ -15,7 +15,11 @@ public class CharacterRanger : CharacterBase
 
     protected override void SearchCharacter()
     {
-        RaycastHit2D[] checks = Physics2D.RaycastAll(checkPoint.position, Vector2.right, character.attackRange, enemyLayer);//kiểm tra trong phạm vi những vật có layer là enemyLayer
+        if(pointAttack == null)
+        {
+            pointAttack = transform;
+        }
+        RaycastHit2D[] checks = Physics2D.RaycastAll(transform.position, Vector2.right * transform.localScale.x, character.attackRange, enemyLayer);//kiểm tra trong phạm vi những vật có layer là enemyLayer
         if (checks.Length > 0)//Nếu trong vùng có
         {
             isAttack = true;
@@ -34,12 +38,17 @@ public class CharacterRanger : CharacterBase
 
     public void AttackBulletAnimationEvent()//Dùng trong Animtion Event để gọi hàm gây sát thương
     {
-        RaycastHit2D[] checks = Physics2D.RaycastAll(checkPoint.position, Vector2.right, character.attackRange, enemyLayer);//kiểm tra trong phạm vi những vật có layer là enemyLayer
+        if (pointAttack == null)
+        {
+            pointAttack = transform.GetChild(0);
+        }
+        
+        RaycastHit2D[] checks = Physics2D.RaycastAll(pointAttack.position, Vector2.right * transform.localScale.x, character.attackRange, enemyLayer);//kiểm tra trong phạm vi những vật có layer là enemyLayer
         if (checks.Length > 0)//Nếu trong vùng có
         {
             if (isTargetBullet)
             {
-                checkPoint = checks[0].transform;
+                pointAttack = checks[0].transform;
             }
 
             BulletSpawn();
@@ -48,25 +57,36 @@ public class CharacterRanger : CharacterBase
 
     private void BulletSpawn()
     {
-        GameObject bullet = Instantiate(bulletPrefab, checkPoint.position, Quaternion.identity);
-        if(bullet.TryGetComponent<Bullet>(out Bullet bul))
+        GameObject bullet = Instantiate(bulletPrefab, pointAttack.position, Quaternion.identity);
+        if (bullet.TryGetComponent<Bullet>(out Bullet bul))
         {
             bul.moveSpeed = bulletSpeed;
+            bul.transform.localScale = transform.localScale;
             bul.damage = character.damage;
+            bul.enemyLayer = enemyLayer;
         }
         else if(bullet.TryGetComponent<BulletFire>(out BulletFire bulletFire))
         {
+            bulletFire.transform.localScale = transform.localScale;
             bulletFire.enemyLayer = enemyLayer;
             bulletFire.damage = character.damage;
+        }
+        else if(bullet.TryGetComponent<Bomb>(out Bomb bomb))
+        {
+            bomb.enemyLayer = enemyLayer;
+            bomb.damage = character.damage;
+            bomb.transform.position = transform.position;
+            bomb.enemy = pointAttack;
+        }
+        else if(bullet.TryGetComponent<Laser>(out Laser laser))
+        {
+            laser.UpdateLaserRange(character.damage);
         }
         
     }
 
     private void OnDrawGizmosSelected()//Hàm vẽ
     {
-        if (checkPoint == null)
-            return;
-
-        Gizmos.DrawLine(checkPoint.position, checkPoint.position+ new Vector3(character.attackRange,0,0));
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(character.attackRange,0,0) * transform.localScale.x);
     }
 }

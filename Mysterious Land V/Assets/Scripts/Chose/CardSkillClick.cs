@@ -45,7 +45,7 @@ public class CardSkillClick : MonoBehaviour, IPointerClickHandler
 
             timeDown = timeCoolDown;
 
-            isCoolDown = true;
+            //isCoolDown = true;
         }
     }
 
@@ -58,7 +58,15 @@ public class CardSkillClick : MonoBehaviour, IPointerClickHandler
         {
             isCoolDown = false;
             coolDownImage.gameObject.SetActive(false);
-            GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+            //GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
         }
+    }
+
+    public void CoolDown()
+    {
+        coolDownImage.gameObject.SetActive(true);
+        isCoolDown = true;
+        timeDown = timeCoolDown;
+        //GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
     }
 }

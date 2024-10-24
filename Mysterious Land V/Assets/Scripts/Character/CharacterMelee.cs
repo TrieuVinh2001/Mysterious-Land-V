@@ -12,7 +12,7 @@ public class CharacterMelee : CharacterBase
 
     protected override void SearchCharacter()
     {
-        Collider2D[] checks = Physics2D.OverlapCircleAll(checkPoint.position, character.attackRange, enemyLayer);//kiểm tra trong phạm vi những vật có layer là enemyLayer
+        Collider2D[] checks = Physics2D.OverlapCircleAll(pointAttack.position, character.attackRange, enemyLayer);//kiểm tra trong phạm vi những vật có layer là enemyLayer
         if (checks.Length > 0)//Nếu trong vùng có
         {
             isAttack = true;
@@ -31,7 +31,7 @@ public class CharacterMelee : CharacterBase
 
     public void AttackAnimationEvent()//Dùng trong Animtion Event để gọi hàm gây sát thương
     {
-        Collider2D[] checks = Physics2D.OverlapCircleAll(checkPoint.position, character.attackRange, enemyLayer);
+        Collider2D[] checks = Physics2D.OverlapCircleAll(pointAttack.position, character.attackRange, enemyLayer);
         if (checks.Length > 0)
         {
             if (checks[0].TryGetComponent(out Building building))
@@ -47,9 +47,6 @@ public class CharacterMelee : CharacterBase
 
     private void OnDrawGizmosSelected()//Hàm vẽ
     {
-        if (checkPoint == null)
-            return;
-
-        Gizmos.DrawWireSphere(checkPoint.position, character.attackRange);
+        Gizmos.DrawWireSphere(pointAttack.position, character.attackRange);
     }
 }

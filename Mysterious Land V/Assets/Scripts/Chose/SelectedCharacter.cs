@@ -27,12 +27,16 @@ public class SelectedCharacter : MonoBehaviour
 
     private void Awake()
     {
-        GetData();//Lấy Id
+        GetData();
 
         if (!dataChar)
         {
             characterSO = charSO;
         }
+
+        allPrefabChar = Resources.LoadAll<GameObject>("Prefabs/Character");
+        allPrefabHero = Resources.LoadAll<GameObject>("Prefabs/Hero");
+        allPrefabSkill = Resources.LoadAll<GameObject>("Prefabs/Skill");
 
         GetCharacter();
         GetHero();

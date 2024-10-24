@@ -86,30 +86,48 @@ public class UIManager : MonoBehaviour
     public void RetryButtonClick()
     {
         Time.timeScale = 1f;
-        AdsManager.Instance.interstitialAds.ShowInterstitialAd();
+        //AdsManager.Instance.interstitialAds.ShowInterstitialAd();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void RewardBonusButtonClick()
     {
-        AdsManager.Instance.rewardedAds.ShowRewardedAd();
+        //AdsManager.Instance.rewardedAds.ShowRewardedAd();
     }
 
     public void NextLevelButton(string nameLevel)
     {
-
+        SceneManager.LoadScene(nameLevel);
     }
 
     public void GameWin()
     {
         winPanel.SetActive(true);
-        
+
+        if (PlayerPrefs.HasKey("LevelCurrent"))
+        {
+            if (PlayerPrefs.GetInt("LevelCurrent") == PlayerPrefs.GetInt("Level"))
+            {
+                int level = PlayerPrefs.GetInt("Level") + 1;
+                PlayerPrefs.SetInt("Level", level);
+            }
+        }
+
+        if (PlayerPrefs.HasKey("MapCurrent"))
+        {
+            if (PlayerPrefs.GetInt("MapCurrent") == PlayerPrefs.GetInt("Map"))
+            {
+                int map = PlayerPrefs.GetInt("Map") + 1;
+                PlayerPrefs.SetInt("Map", map);
+            }
+        }
+
         Time.timeScale = 0f;
     }
 
     public void GameLose()
     {
-        //losePanel.SetActive(true);
+        losePanel.SetActive(true);
         Time.timeScale = 0f;
     }
 }

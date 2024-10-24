@@ -925,7 +925,7 @@ GameObject:
   - component: {fileID: 168765187}
   - component: {fileID: 168765186}
   - component: {fileID: 168765188}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AreaCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1599,6 +1599,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedChar: {fileID: 5858920986807054604}
+  layerArea:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &380418317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,7 +1614,7 @@ GameObject:
   - component: {fileID: 380418320}
   - component: {fileID: 380418319}
   - component: {fileID: 380418321}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AreaAbove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1787,7 +1790,7 @@ GameObject:
   - component: {fileID: 387351363}
   - component: {fileID: 387351362}
   - component: {fileID: 387351364}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AreaBelow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3056,37 +3059,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posSpawn: {x: -22, y: 1}
---- !u!1 &619737397
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 619737398}
-  m_Layer: 0
-  m_Name: Character
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &619737398
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619737397}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624481414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3775,7 +3747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 777711504}
   - component: {fileID: 777711505}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BGBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3935,7 +3907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 816082065}
   - component: {fileID: 816082066}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BGBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4544,6 +4516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736ad6fc3848681408c9fc96994eafcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterWaveBot: []
   characterPrefabs:
   - {fileID: 1781178037702129868, guid: eee0fa3c50a61b64a8c1291f0067874b, type: 3}
   pointSpawn:
@@ -4551,6 +4524,7 @@ MonoBehaviour:
   - {fileID: 1362553759}
   - {fileID: 1525623683}
   coin: 8
+  level: 0
 --- !u!4 &1020836911
 Transform:
   m_ObjectHideFlags: 0
@@ -6534,7 +6508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1512211945}
   - component: {fileID: 1512211946}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AreaSpawn
   m_TagString: AreaSpawn
   m_Icon: {fileID: 0}
@@ -7848,7 +7822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1997365992}
   - component: {fileID: 1997365993}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BGBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9983,9 +9957,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a99dc24097c9e4499ba73e65798f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataChar: 1
-  idChar: []
-  indexSelected: 0
+  dataChar: 0
+  charSO: []
   prefab: {fileID: 0}
   characterPrefabs: []
   heroPrefab: {fileID: 0}
@@ -10002,6 +9975,7 @@ MonoBehaviour:
   - {fileID: 8488190571552206033, guid: 68a9664a8d8df8240be067f09d6605dd, type: 3}
   - {fileID: 8488190571552206033, guid: 295f3af1222a53148bb0657e57aa3815, type: 3}
   - {fileID: 6643120501169734777, guid: d3dd6c3a451680e44ac3e8df0df110e2, type: 3}
+  - {fileID: 4206574660737139205, guid: 94e3825ddca840242bc89e7660e85b5c, type: 3}
   allPrefabHero:
   - {fileID: 5843800483165856741, guid: 95213be0515ee8f44b8883c66773b47e, type: 3}
   allPrefabSkill:
@@ -10019,7 +9993,6 @@ MonoBehaviour:
   characterSO: []
   idHero: 0
   idSkill: 0
-  isHero: 0
   isSkill: 0
 --- !u!114 &5858920986807054605
 MonoBehaviour:
@@ -10033,6 +10006,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7734d9fed0b23a54f9371b5dd4c39572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerArea:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!222 &5894802120799041759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10988,7 +10964,6 @@ SceneRoots:
   - {fileID: 1512211945}
   - {fileID: 1404763034}
   - {fileID: 2126062526}
-  - {fileID: 619737398}
   - {fileID: 746355850}
   - {fileID: 653491800}
   - {fileID: 1020836911}

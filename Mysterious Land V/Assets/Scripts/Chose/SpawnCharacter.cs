@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnCharacter : MonoBehaviour
 {
     private SelectedCharacter selectedChar;
+    [SerializeField] private LayerMask layerArea;
 
     private bool isDragging = false;
     private Vector3 startPosition;
@@ -60,7 +61,7 @@ public class SpawnCharacter : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
-        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);//xác định điểm nhấn dựa vào raycast
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, layerArea);//xác định điểm nhấn dựa vào raycast
 
         if (hit.collider != null && hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area))
         {
@@ -81,39 +82,6 @@ public class SpawnCharacter : MonoBehaviour
             selectedChar.prefab = null;
             StartCoroutine(BackGroundArea(area.gameObject.transform.GetChild(0).gameObject));
         }
-    }
-
-    private void SpawCharacterOnArea()
-    {
-        //if (hit.collider != null/* && hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area)*/)
-        //{
-        //    if (hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area))
-        //    {
-        //        int coinCharacter = selectedChar.characterPrefabs[selectedChar.indexSelected].GetComponent<CharacterBase>().GetCharacterSO().coin;
-        //        if (coinCharacter > GameManager.instance.coin)
-        //            return;
-
-        //        Spawn(selectedChar.characterPrefabs[selectedChar.indexSelected], area.posSpawn, area.gameObject, coinCharacter);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
-        //        selectedChar.cards[selectedChar.indexSelected].GetComponent<CardClick>().CoolDown();
-        //        selectedChar.indexSelected = -1;//Reset lại index để phải chọn lại quân để spawn
-
-        //        StartCoroutine(BackGroundArea(area.gameObject.transform.GetChild(0).gameObject));
-        //    }
-        //    else if (hit.collider.TryGetComponent<CharacterBase>(out CharacterBase charBase))
-        //    {
-        //        AreaSpawn areaSpawn = charBase.gameObject.transform.parent.GetComponent<AreaSpawn>();
-        //        int coinCharacter = selectedChar.characterPrefabs[selectedChar.indexSelected].GetComponent<CharacterBase>().GetCharacterSO().coin;
-        //        if (coinCharacter > GameManager.instance.coin)
-        //            return;
-
-        //        Spawn(selectedChar.characterPrefabs[selectedChar.indexSelected], areaSpawn.posSpawn, areaSpawn.gameObject, coinCharacter);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
-        //        selectedChar.cards[selectedChar.indexSelected].GetComponent<CardClick>().CoolDown();
-        //        selectedChar.indexSelected = -1;//Reset lại index để phải chọn lại quân để spawn
-
-        //        StartCoroutine(BackGroundArea(areaSpawn.gameObject.transform.GetChild(0).gameObject));
-        //    }
-
-        //}
     }
 
     private void Spawn(GameObject prefab, Vector2 posSpawn, GameObject areaParent, int coinCharacter)
