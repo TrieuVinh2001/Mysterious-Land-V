@@ -21,11 +21,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject losePanel;
 
-    [SerializeField] private Button settingButton;
+    //[SerializeField] private Button settingButton;
+
 
     private void Start()
     {
-        settingButton.onClick.AddListener(SettingButtonClick);//Khi nhấn nút thì thực hiện hàm SettingButtonClick
+        GameManager.instance.uiManager = GetComponent<UIManager>();
+        //settingButton.onClick.AddListener(SettingButtonClick);//Khi nhấn nút thì thực hiện hàm SettingButtonClick
         UpdateUI();
         UpdateCoinToUpLevelText();
     }
@@ -65,7 +67,7 @@ public class UIManager : MonoBehaviour
         healthEnemy.gameObject.transform.parent.GetComponent<Image>().fillAmount = (float)health / 999;
     }
 
-    private void SettingButtonClick()
+    public void SettingButtonClick()
     {
         pausePanel.SetActive(true);
         Time.timeScale = 0f;

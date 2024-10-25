@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class CardHeroClick : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private SelectedCharacter selectChar;
     private Button button;
     public CharacterSO characterSO;
     public GameObject prefab;
@@ -24,8 +23,8 @@ public class CardHeroClick : MonoBehaviour, IPointerClickHandler
     {
         if (button.enabled)//Nếu nút hiện
         {
-            selectChar.isSkill = false;
-            selectChar.prefab = prefab;
+            SelectedCharacter.instance.isSkill = false;
+            SelectedCharacter.instance.prefab = prefab;
             button.enabled = false;
         }
     }

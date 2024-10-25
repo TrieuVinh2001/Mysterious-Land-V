@@ -202,7 +202,7 @@ MonoBehaviour:
     m_Bits: 64
   health: 0
   isEnemy: 0
-  isSummon: 1
+  isSummon: 0
 --- !u!1 &7203551527725936613
 GameObject:
   m_ObjectHideFlags: 0

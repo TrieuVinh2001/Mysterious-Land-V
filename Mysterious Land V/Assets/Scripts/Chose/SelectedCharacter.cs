@@ -5,6 +5,8 @@ using TMPro;
 
 public class SelectedCharacter : MonoBehaviour
 {
+    public static SelectedCharacter instance;
+
     [SerializeField] private bool dataChar;
     [SerializeField] private List<CharacterSO> charSO = new List<CharacterSO>();
     public GameObject prefab;
@@ -27,6 +29,15 @@ public class SelectedCharacter : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         GetData();
 
         if (!dataChar)

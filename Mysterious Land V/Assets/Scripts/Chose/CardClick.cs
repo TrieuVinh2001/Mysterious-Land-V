@@ -7,7 +7,6 @@ using TMPro;
 
 public class CardClick : MonoBehaviour, IPointerClickHandler
 {
-    private SelectedCharacter selectChar;
     private Button button;
     public int index;//thứ tự trong list
     public CharacterSO characterSO;
@@ -23,7 +22,6 @@ public class CardClick : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         button = GetComponent<Button>();
-        selectChar = GetComponentInParent<SelectedCharacter>();
         GetComponent<Image>().sprite = characterSO.image;
         GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
         timeCoolDownText = coolDownImage.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -43,20 +41,20 @@ public class CardClick : MonoBehaviour, IPointerClickHandler
     {
         if (button.enabled)//Nếu nút hiện
         {
-            for (int i = 0; i < selectChar.cards.Length; i++)
+            for (int i = 0; i < SelectedCharacter.instance.cards.Length; i++)
             {
-                if(selectChar.cards[i].GetComponent<CardClick>().index == index)
+                if(SelectedCharacter.instance.cards[i].GetComponent<CardClick>().index == index)
                 {
                     GetComponent<Image>().color = Color.white;
                 }
                 else
                 {
-                    selectChar.cards[i].GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+                    SelectedCharacter.instance.cards[i].GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
                 }
             }
 
-            selectChar.prefab = prefab;
-            selectChar.isSkill = false;
+            SelectedCharacter.instance.prefab = prefab;
+            SelectedCharacter.instance.isSkill = false;
         }
     }
 

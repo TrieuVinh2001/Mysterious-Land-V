@@ -7,7 +7,6 @@ using TMPro;
 
 public class CardSkillClick : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private SelectedCharacter selectedChar;
     private Button button;
     public SkillSO skillSO;
     [SerializeField] private Image coolDownImage;
@@ -40,8 +39,8 @@ public class CardSkillClick : MonoBehaviour, IPointerClickHandler
     {
         if (button.enabled)
         {
-            selectedChar.isSkill = true;
-            selectedChar.prefab = null;
+            SelectedCharacter.instance.isSkill = true;
+            SelectedCharacter.instance.prefab = null;
 
             timeDown = timeCoolDown;
 

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnSkill : MonoBehaviour
 {
-    [SerializeField] private SelectedCharacter selectedChar;
     [SerializeField] private LayerMask layerArea;
 
     private bool isDragging = false;
@@ -36,7 +35,7 @@ public class SpawnSkill : MonoBehaviour
 
             if (!isDragging)
             {
-                if (!selectedChar.isSkill)
+                if (!SelectedCharacter.instance.isSkill)
                     return;
                 else
                 {
@@ -58,12 +57,12 @@ public class SpawnSkill : MonoBehaviour
             if(hit.collider.TryGetComponent<AreaSpawn>(out AreaSpawn area))
             {
                 Vector3 pos = new Vector3(mousePos2D.x, area.posSpawn.y, 0);
-                GameObject skill = Instantiate(selectedChar.skillPrefab, pos, Quaternion.identity);
+                GameObject skill = Instantiate(SelectedCharacter.instance.skillPrefab, pos, Quaternion.identity);
                 skill.GetComponent<SkillBase>().posTarget = pos;
                 skill.transform.parent = area.transform; //đưa gameobject làm con của gameobject areaParent
 
                 GetComponent<CardSkillClick>().CoolDown();
-                selectedChar.isSkill = false;
+                SelectedCharacter.instance.isSkill = false;
             }
             //else if (hit.collider.TryGetComponent<CharacterBase>(out CharacterBase charBase))
             //{

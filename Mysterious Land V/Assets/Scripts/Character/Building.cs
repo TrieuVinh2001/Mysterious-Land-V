@@ -8,7 +8,7 @@ public class Building : MonoBehaviour
 
     private void Start()
     {
-        UpdateUI();
+        //UpdateUI();
     }
 
     public void TakeDamage(int damage)
