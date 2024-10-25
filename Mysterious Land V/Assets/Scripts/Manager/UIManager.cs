@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject losePanel;
+    [SerializeField] private GameObject noteCoinText;
 
     //[SerializeField] private Button settingButton;
 
@@ -131,5 +132,17 @@ public class UIManager : MonoBehaviour
     {
         losePanel.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void NoteCoin()
+    {
+        noteCoinText.SetActive(true);
+        StartCoroutine(HideText());
+    }
+
+    private IEnumerator HideText()
+    {
+        yield return new WaitForSeconds(2f);
+        noteCoinText.SetActive(false);
     }
 }

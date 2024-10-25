@@ -67,7 +67,10 @@ public class SpawnCharacter : MonoBehaviour
         {
             int coinCharacter = selectedChar.prefab.GetComponent<CharacterBase>().GetCharacterSO().coin;
             if (coinCharacter > GameManager.instance.coin)
+            {
+                GameManager.instance.uiManager.NoteCoin();
                 return;
+            }
 
             Spawn(selectedChar.prefab, area.posSpawn, area.gameObject, coinCharacter);//Tạo quân dựa vào thứ tự trong list, vị trí, gameobject cha
             
