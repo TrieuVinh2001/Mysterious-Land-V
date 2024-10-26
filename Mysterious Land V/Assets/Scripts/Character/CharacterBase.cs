@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CharacterBase : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class CharacterBase : MonoBehaviour
     [SerializeField] protected float health;
     [SerializeField] protected bool isEnemy;
     [SerializeField] protected bool isSummon;
+    [SerializeField] protected GameObject floatingText;
+    [SerializeField] protected Image healthImage;
     protected float nextAttackTime = 1f;//Biến trung gian để so với thời gian dùng trong hồi chiêu
     protected Rigidbody2D rb;
     protected Animator anim;
@@ -34,6 +38,8 @@ public class CharacterBase : MonoBehaviour
 
     protected virtual void Update()
     {
+        healthImage.fillAmount = health / character.hp;
+
         SearchCharacter();//Tìm kiếm các nhân vật trong phạm vi
 
         if (!isAttack)
@@ -88,6 +94,9 @@ public class CharacterBase : MonoBehaviour
         if (health - damage > 0)
         {
             health -= damage;
+
+            GameObject prefab = Instantiate(floatingText, healthImage.gameObject.transform.position, Quaternion.identity) as GameObject;//Sinh ra chữ
+            prefab.GetComponentInChildren<TextMeshPro>().text = "-" + damage.ToString();//Gán sát thương cho chữ
         }
         else
         {

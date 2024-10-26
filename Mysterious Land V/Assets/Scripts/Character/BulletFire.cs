@@ -12,7 +12,6 @@ public class BulletFire : MonoBehaviour
     private void AttackEventAnimation()
     {
         DealDamage();
-        Destroy(gameObject);
     }
 
     private void DealDamage()
@@ -27,8 +26,13 @@ public class BulletFire : MonoBehaviour
             }
 
             checks[0].GetComponent<CharacterBase>().TakeDamage(damage);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
+    }
+
+    private void DestroyBullet()
+    {
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()//Hàm vẽ
