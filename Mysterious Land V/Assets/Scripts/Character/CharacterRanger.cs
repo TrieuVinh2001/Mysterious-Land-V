@@ -82,6 +82,13 @@ public class CharacterRanger : CharacterBase
         {
             laser.UpdateLaserRange(character.damage);
         }
+        else if(bullet.TryGetComponent<BallSoul>(out BallSoul ballSoul))
+        {
+            ballSoul.posTarget = pointAttack.position + new Vector3(character.attackRange, 0, 0) * transform.localScale.x;
+            ballSoul.damage = character.damage;
+            ballSoul.moveSpeed = bulletSpeed;
+            ballSoul.enemyLayer = enemyLayer;
+        }
         
     }
 

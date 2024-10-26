@@ -9,7 +9,7 @@ public class CharacterBase : MonoBehaviour
     [SerializeField] protected CharacterSO character;
     [SerializeField] protected bool isAttack;
     [SerializeField] protected Transform pointAttack;//Vị trí kiểm tra
-    [SerializeField] protected LayerMask enemyLayer;//Layer của đối thủ
+    [SerializeField] public LayerMask enemyLayer;//Layer của đối thủ
     [SerializeField] protected float health;
     [SerializeField] protected bool isEnemy;
     [SerializeField] protected bool isSummon;
