@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1619402013326809925}
   - component: {fileID: 1398024480884572760}
   m_Layer: 7
-  m_Name: Kitsune
+  m_Name: Hero_Kitsune
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,7 +244,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1.5, y: 0.15}
+  m_SizeDelta: {x: 2, y: 0.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5455062079033930207
 CanvasRenderer:
@@ -321,8 +321,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: 1.5, y: 0.2}
+  m_AnchoredPosition: {x: -0.2, y: 1}
+  m_SizeDelta: {x: 2, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8969679033045996300
 Canvas:
@@ -422,7 +422,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1.5, y: 0.15}
+  m_SizeDelta: {x: 2, y: 0.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7665592042207382313
 CanvasRenderer:

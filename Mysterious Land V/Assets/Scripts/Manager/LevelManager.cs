@@ -15,7 +15,6 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     private DataContainer dataContainer;
-    public List<int> idCharacters = new List<int>();
     [SerializeField] private GameObject[] cards;//Danh sách các ô thẻ trong phần ShowCard
 
     [SerializeField] private GameObject showCards;
@@ -24,9 +23,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject choseSkill;
 
     public List<CharacterSO> characterSelected = new List<CharacterSO>();
+    public int idHero;
+    public int idSkill;
 
     [SerializeField] private List<CharacterSO> characterSO =  new List<CharacterSO>();
     [SerializeField] private List<CharacterSO> heroSO =  new List<CharacterSO>();
+    [SerializeField] private List<SkillSO> skillSO =  new List<SkillSO>();
 
     private void Awake()
     {
@@ -43,39 +45,41 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         ShowAllCard();
-        //ShowAllHero();
-        //ShowAllSkill();
+        ShowAllHero();
+        ShowAllSkill();
     }
 
     private void ShowAllCard()
     {
-        int i = 0;
-        foreach (var charSO in characterSO)
+        for (int i = 0; i < characterSO.Count; i++)
         {
             GameObject card = choseCharacter.transform.GetChild(i).GetChild(0).gameObject;
-            i++;
-            card.GetComponent<ChoseCard>().characterSO = charSO;
-            card.GetComponent<Image>().sprite = charSO.image;
+            card.GetComponent<ChoseCard>().characterSO = characterSO[i];
+            card.GetComponent<Image>().sprite = characterSO[i].image;
             card.SetActive(true);
         }
     }
 
     private void ShowAllHero()
     {
-        int i = 0;
-        foreach (var heroSO in heroSO)
+        for (int i = 0; i < heroSO.Count; i++)
         {
             GameObject card = choseHero.transform.GetChild(i).GetChild(0).gameObject;
-            i++;
-            //card.GetComponent<ChoseCard>().characterSO = heroSO;
-            card.GetComponent<Image>().sprite = heroSO.image;
+            card.GetComponent<ChoseHeroCard>().heroSO = heroSO[i];
+            card.GetComponent<Image>().sprite = heroSO[i].image;
             card.SetActive(true);
         }
     }
 
     private void ShowAllSkill()
     {
-
+        for (int i = 0; i < skillSO.Count; i++)
+        {
+            GameObject card = choseSkill.transform.GetChild(i).GetChild(0).gameObject;
+            card.GetComponent<ChoseSkillCard>().skillSO = skillSO[i];
+            card.GetComponent<Image>().sprite = skillSO[i].image;
+            card.SetActive(true);
+        }
     }
 
     public void ClickAddCharacterCard(CharacterSO charSO)
@@ -88,6 +92,31 @@ public class LevelManager : MonoBehaviour
     {
         characterSelected.Remove(charSO);
         ShowAfterRemove(charSO);
+    }
+
+    public void ClickAddHeroCard(CharacterSO hero)
+    {
+        idHero = hero.id;
+        Debug.Log(idHero);
+        for (int i = 0; i < heroSO.Count; i++)//Tắt BGCard của các thẻ k chọn 
+        {
+            if (heroSO[i] != hero)
+            {
+                choseHero.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
+            }
+        }
+    }
+    
+    public void ClickAddSkillCard(SkillSO skill)
+    {
+        idSkill = skill.id;
+        for (int i = 0; i < skillSO.Count; i++)//Tắt BGCard của các thẻ k chọn 
+        {
+            if (skillSO[i] != skill)
+            {
+                choseSkill.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
+            }
+        }
     }
 
     private void ShowCard(CharacterSO characterSO)//Hiện các thẻ đã chọn
@@ -147,8 +176,8 @@ public class LevelManager : MonoBehaviour
         string jsonData = JsonUtility.ToJson(dataContainer);
 
         PlayerPrefs.SetString("Data", jsonData);//Xét giá trị cho dữ liệu để dùng khi chuyển sang màn chơi
-        PlayerPrefs.SetInt("Hero", 1);
-        PlayerPrefs.SetInt("Skill", 1);
+        PlayerPrefs.SetInt("Hero", idHero);
+        PlayerPrefs.SetInt("Skill", idSkill);
 
         SceneManager.LoadScene("Map_" + PlayerPrefs.GetInt("MapCurrent"));//Chuyển scene
     }

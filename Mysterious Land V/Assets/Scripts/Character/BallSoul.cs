@@ -28,9 +28,9 @@ public class BallSoul : MonoBehaviour
     {
         Rotation();
         transform.position = Vector2.MoveTowards(transform.position, posTarget, moveSpeed * Time.deltaTime);
-        if(transform.position == posTarget)
+        if(transform.position == new Vector3(posTarget.x, posTarget.y, 0))
         {
-            posTarget = posStart;
+            posTarget = new Vector3(posTarget.x, posTarget.y, 0);
             isDestroy = true;
         }
 

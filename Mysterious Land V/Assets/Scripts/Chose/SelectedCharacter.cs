@@ -81,8 +81,10 @@ public class SelectedCharacter : MonoBehaviour
         {
             if (prefab.GetComponent<CharacterBase>().GetCharacterSO().id == idHero)
             {
+                Debug.Log(prefab);
                 heroPrefab = prefab;
                 cardHero.GetComponent<CardHeroClick>().characterSO = prefab.GetComponent<CharacterBase>().GetCharacterSO();
+                cardHero.GetComponent<CardHeroClick>().prefab = prefab;
             }
         }
     }

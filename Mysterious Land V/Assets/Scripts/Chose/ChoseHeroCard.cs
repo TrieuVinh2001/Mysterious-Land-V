@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChoseCard : MonoBehaviour
+public class ChoseHeroCard : MonoBehaviour
 {
-    public CharacterSO characterSO;
+    public CharacterSO heroSO;
     public GameObject coolCard;
     private Button button;
 
@@ -15,14 +15,10 @@ public class ChoseCard : MonoBehaviour
         button.onClick.AddListener(ClickAddCard);
     }
 
-    public void ClickAddCard()//Nhấn để thêm thẻ vào danh sách các thẻ sẽ dùng trong màn chơi
+    public void ClickAddCard()
     {
-        if (LevelManager.instance.characterSelected.Count >= 6)
-            return;
-
-        LevelManager.instance.ClickAddCharacterCard(characterSO);
+        LevelManager.instance.ClickAddHeroCard(heroSO);
 
         coolCard.SetActive(true);
     }
-
 }

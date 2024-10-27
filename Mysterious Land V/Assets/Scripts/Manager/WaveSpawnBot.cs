@@ -52,7 +52,9 @@ public class WaveSpawnBot : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(characterPrefabs[Random.Range(0, characterPrefabs.Length)], pointSpawn[Random.Range(0, pointSpawn.Length)].position, Quaternion.identity);
+        Transform point = pointSpawn[Random.Range(0, pointSpawn.Length)];
+        GameObject enemy = Instantiate(characterPrefabs[Random.Range(0, characterPrefabs.Length)], point.position, Quaternion.identity);
+        enemy.transform.parent = point;
         GameManager.instance.ChangeCountEnemy(1);
         StartCoroutine(WaitNextSpawn());
     }

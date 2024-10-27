@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee347ed2933a4a54a8c7a2c195519075, type: 3}
-  m_Name: Kitsune
+  m_Name: Hero_Kitsune
   m_EditorClassIdentifier: 
   name: Kitsune
-  id: 15
-  image: {fileID: 1621118561, guid: 6596effc70a134e478c90fb089f1d5e9, type: 3}
-  coin: 15
-  hp: 120
+  id: 2
+  image: {fileID: -1432126826, guid: b214348fc2a886643850ae46471743d4, type: 3}
+  coin: 0
+  hp: 200
   damage: 25
   armor: 1
   moveSpeed: 1
   attackSpeed: 1.5
-  attackRange: 4
+  attackRange: 4.5
   critical: 0
   bloodSucker: 0
   armorPiercing: 0
