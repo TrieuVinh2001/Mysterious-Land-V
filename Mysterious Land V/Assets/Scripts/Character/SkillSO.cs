@@ -9,5 +9,8 @@ public class SkillSO : ScriptableObject
     public new string name;
     public int id;
     public Sprite image;
+    public float damage;
+    public float explosionRange;
+    public int countEnemy;
     public float timeCoolDown;
 }
